@@ -26,12 +26,13 @@ export const FileStep: React.FC<{
   prevState: FileStepState | null;
   onChange: (state: FileStepState | null) => void;
   onAccept: () => void;
-}> = ({ customConfig, defaultNoHeader, prevState, onChange, onAccept }) => {
+  defaultFile?: File;
+}> = ({ customConfig, defaultNoHeader, prevState, onChange, onAccept, defaultFile }) => {
   const l10n = useLocale('fileStep');
 
   // seed from previous state as needed
   const [selectedFile, setSelectedFile] = useState<File | null>(
-    prevState ? prevState.file : null
+    prevState ? prevState.file : (defaultFile ? defaultFile : null)
   );
 
   const [preview, setPreview] = useState<PreviewResults | null>(
