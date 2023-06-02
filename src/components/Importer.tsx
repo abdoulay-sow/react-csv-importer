@@ -84,7 +84,6 @@ export function Importer<Row extends BaseRow>(
             onAccept={() => {
               setFileAccepted(true);
             }}
-            defaultFile={customPapaParseConfig.defaultFile}
           />
         </div>
       </LocaleContext.Provider>
